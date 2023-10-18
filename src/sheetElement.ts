@@ -352,7 +352,7 @@ export class SheetElement extends MarkdownRenderChild
 		) cell = this.domGrid[rowIndex][columnIndex - 1];
 		else 
 		{
-			cell = rowNode.createEl(cellTag, { cls });
+			cell = rowNode.createEl(cellTag, { cls: cls?.map(cls => cls?.slice(1)) });
 			cell.setAttribute('row-index', rowIndex.toString());
 			cell.setAttribute('col-index', columnIndex.toString());
 			// cell.innerHTML = (new Converter({ backslashEscapesHTMLTags: true, strikethrough: true, })).makeHtml(' ' + cellContent);
